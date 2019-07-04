@@ -39,6 +39,9 @@ public class BaeldungImpl implements Baeldung {
         return votes;
     }
     
+    //in this "server side" u can't modify object of other class, in example u can't set a vote matter or votation, 
+    //in anycase, u can only retrive information of the object with the get function
+    //so the information that the server would manage should be stored in the server (mapVote, mapStudent)
     public String newVote(int student, Vote vote){
         if(votes.get(student) == null){
             LinkedList list = new LinkedList<Vote>();
