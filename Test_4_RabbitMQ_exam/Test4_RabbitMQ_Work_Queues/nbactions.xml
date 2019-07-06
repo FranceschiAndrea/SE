@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actions>
+        <action>
+            <actionName>CUSTOM-exec worker</actionName>
+            <displayName>exec worker</displayName>
+            <goals>
+                <goal>exec:java</goal>
+                <goal>-PWorker</goal>
+            </goals>
+        </action>
+        <action>
+            <actionName>CUSTOM-exec new task</actionName>
+            <displayName>exec new task</displayName>
+            <goals>
+                <goal>exec:java</goal>
+                <goal>-PNewTask</goal>
+            </goals>
+        </action>
+    </actions>

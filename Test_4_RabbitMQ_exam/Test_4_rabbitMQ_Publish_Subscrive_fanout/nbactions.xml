@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actions>
+        <action>
+            <actionName>CUSTOM-exec receive logs</actionName>
+            <displayName>exec receive logs</displayName>
+            <goals>
+                <goal>exec:java</goal>
+                <goal>-PReceiveLogs</goal>
+            </goals>
+        </action>
+        <action>
+            <actionName>CUSTOM-exec emit log</actionName>
+            <displayName>exec emit log</displayName>
+            <goals>
+                <goal>exec:java</goal>
+                <goal>-PEmitLog</goal>
+            </goals>
+        </action>
+    </actions>
