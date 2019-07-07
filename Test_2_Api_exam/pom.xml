@@ -36,32 +36,54 @@
             <version>4.12</version>
         </dependency>
     </dependencies>
-    
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>exec-maven-plugin</artifactId>
-                <version>1.6.0</version>
-                <configuration>
-                    <mainClass>
-                        com.anfropippo.test_2_api_exam.RestfulServer
-                    </mainClass>
-                </configuration>
-            </plugin>
-            
-            <!-- Used to builde without execute test -->
-            <!--
-            <plugin>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.19.1</version>
-                <configuration>
-                <excludes>
-                    <exclude>**/RestfullLiveTest</exclude>
-                </excludes>
-                </configuration>
-            </plugin>
-            -->
-        </plugins>
-    </build>
+      <profiles>
+        <profile>
+            <id>Server</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>exec-maven-plugin</artifactId>
+                        <version>1.6.0</version>
+                        <configuration>
+                            <mainClass>
+                                com.anfropippo.test_2_api_exam.RestfulServer
+                            </mainClass>
+                        </configuration>
+                    </plugin>
+
+                    <!-- Used to builde without execute test -->
+                    <!--
+                    <plugin>
+                        <artifactId>maven-surefire-plugin</artifactId>
+                        <version>2.19.1</version>
+                        <configuration>
+                        <excludes>
+                            <exclude>**/RestfullLiveTest</exclude>
+                        </excludes>
+                        </configuration>
+                    </plugin>
+                    -->
+                </plugins>
+            </build>
+        </profile>
+        
+        <profile>
+            <id>Client</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>exec-maven-plugin</artifactId>
+                        <version>1.6.0</version>
+                        <configuration>
+                            <mainClass>
+                                com.anfropippo.test_2_api_exam.Client
+                            </mainClass>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 </project>

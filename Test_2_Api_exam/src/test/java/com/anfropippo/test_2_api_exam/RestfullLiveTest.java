@@ -1,15 +1,10 @@
 package com.anfropippo.test_2_api_exam;
 
-import com.anfropippo.test_2_api_exam.Student;
-import com.anfropippo.test_2_api_exam.Course;
-import static com.sun.istack.tools.DefaultAuthenticator.reset;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
-import java.util.LinkedList;
-import java.util.List;
 import javax.xml.bind.JAXB;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpDelete;
@@ -69,6 +64,7 @@ public class RestfullLiveTest {
         final HttpPost httpPost = new HttpPost(BASE_URL + "1/students");
         final InputStream resourceStream = this.getClass().getClassLoader()
           .getResourceAsStream("conflict_student.xml");
+        System.out.println("ECCOLOOOOOO:" + this.getClass().getClassLoader().getResourceAsStream("conflict_stuent.xml"));
         httpPost.setEntity(new InputStreamEntity(resourceStream));
         
         //The Content-Type header is set to tell the server that the 
@@ -120,7 +116,6 @@ public class RestfullLiveTest {
         final InputStream resourceStream = this.getClass().getClassLoader().getResourceAsStream("unchanged_course.xml");
         httpPut.setEntity(new InputStreamEntity(resourceStream));
         httpPut.setHeader("Content-Type", "text/xml");
-
         final HttpResponse response = client.execute(httpPut);
         assertEquals(304, response.getStatusLine().getStatusCode());
     }

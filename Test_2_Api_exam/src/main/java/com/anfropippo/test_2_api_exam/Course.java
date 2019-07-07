@@ -107,6 +107,7 @@ public class Course {
             }
         }
         students.add(student);
+        System.out.println(students);
         return Response.ok(student).build();
     }
 

@@ -6,6 +6,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
@@ -72,6 +73,19 @@ public class CourseRepository {
     @Path("courses/{courseId}")
     public Course getCourse(@PathParam("courseId") int courseId) {
         return findById(courseId);
+    }
+    
+    @POST
+    @Path("courses/new")
+    public Response updateCourse(Course course) {
+        Course existingCourse = findById(course.getId());        
+        if (existingCourse == null) {
+            courses.put(course.getId(), course);
+            return Response.ok().build();
+        }
+        else {
+            return Response.notModified("Course already exist!").build();
+        }
     }
     
     @PUT
