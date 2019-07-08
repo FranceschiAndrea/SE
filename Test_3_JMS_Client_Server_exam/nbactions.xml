@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actions>
+        <action>
+            <actionName>CUSTOM-exec server</actionName>
+            <displayName>exec server</displayName>
+            <goals>
+                <goal>exec:java</goal>
+                <goal>-PServer</goal>
+            </goals>
+        </action>
+        <action>
+            <actionName>CUSTOM-exec client</actionName>
+            <displayName>exec client</displayName>
+            <goals>
+                <goal>exec:java</goal>
+                <goal>-PClient</goal>
+            </goals>
+        </action>
+    </actions>
